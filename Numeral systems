@@ -1,0 +1,93 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+
+int main()
+{
+setlocale(LC_CTYPE, "RUSSIAN");
+char answ_user;
+cout << "В десятичную(i) или из десятичной (o):_\b";
+cin >> answ_user;
+switch(answ_user)
+{
+ case('i'): inTen(); break;
+ case('o'): outTen(); break;                 
+} 
+}
+
+
+
+void outTen()
+{
+int number, n, LoL, a;
+double num_sys;
+
+cout << "Введите число в десятичной системе счисления: ";
+cin >> number;
+cout << "Введите показатель новой системы счисления ";
+cin >> num_sys;
+a = num_sys;
+
+for(int i = 0 ;; i++)
+{
+ if( pow(num_sys, i) >= number)
+ {
+  n = i;
+  break;         
+ }       
+}
+
+char mas[n];
+int i = 0;
+
+while(number != 0)
+{
+ LoL = number % a;
+ switch(LoL)
+ {
+  case(0): mas[i] = '0'; break;
+  case(1): mas[i] = '1'; break;
+  case(2): mas[i] = '2'; break;
+  case(3): mas[i] = '3'; break;
+  case(4): mas[i] = '4'; break;
+  case(5): mas[i] = '5'; break;
+  case(6): mas[i] = '6'; break;
+  case(7): mas[i] = '7'; break;
+  case(8): mas[i] = '8'; break;
+  case(9): mas[i] = '9'; break;
+  case(10): mas[i] = 'A'; break;
+  case(11): mas[i] = 'B'; break;
+  case(12): mas[i] = 'C'; break;
+  case(13): mas[i] = 'D'; break;
+  case(14): mas[i] = 'E'; break;
+  case(15): mas[i] = 'F'; break;                                                                 
+ }
+ number /= a;
+ i++;
+}
+for(int i = n; i >= 0; i--)
+{
+ cout << mas[i];        
+}
+ cout << "\a";
+ system("PAUSE >> VOID");     
+}
+
+void inTen()
+{
+ int a;
+ cout << "Введите количество цифр: ";
+ cin >> a;
+ char num1[a], num2[a];
+ for(int i = 0; i < a; i++)
+ {
+  cin >> num1[i];        
+ }
+  for(int i = 0; i < a; i++)
+ {
+  cout << num1[i];        
+ }
+ system("PAUSE >>VOID");     
+}
